@@ -1,6 +1,8 @@
 class shorten {
 
-  package { ['redis-server', 'python-pip', 'gunicorn', 'nginx']:
+  include nginx
+
+  package { ['redis-server', 'python-pip', 'gunicorn']:
     ensure => installed
   }
 
@@ -20,15 +22,7 @@ class shorten {
     source => "puppet:///modules/shorten/shorten-upstart.conf"
   }
 
-  file { '/etc/nginx/sites-enabled/default':
-    ensure => absent,
-    require => Package['nginx']
-  }
-
-  file { '/etc/nginx/sites-enabled/shorten':
-    ensure => present,
-    notify => Service['nginx'],
-    require => Package['nginx'],
+  nginx::vhost { 'shorten':
     source => "puppet:///modules/shorten/shorten-nginx.conf"
   }
 
