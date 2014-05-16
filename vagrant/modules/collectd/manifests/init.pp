@@ -10,14 +10,19 @@ class collectd {
     notify => Service['collectd']
   }
 
+  file { '/etc/init.d/collectd':
+    ensure => absent
+  }
+
   file { '/etc/init/collectd.conf':
-    source => "puppet:///modules/collectd/collectd-upstart.conf",
-    require => Package['collectd']
+    ensure => present,
+    source => "puppet:///modules/collectd/collectd-upstart.conf"
   }
 
   service { 'collectd':
+    ensure => running,
     provider => upstart,
-    ensure => running
+    require => File['/etc/init/collectd.conf']
   }
 
 
