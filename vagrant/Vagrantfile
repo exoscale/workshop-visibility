@@ -11,10 +11,29 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "sincerely/trusty64"
+
   config.vm.define "app" do |node|
     node.vm.hostname = "app"
     node.vm.provision :puppet do |puppet|
       puppet.manifest_file = "app.pp"
+      puppet.manifests_path = "manifests"
+      puppet.module_path = "modules"
+    end
+  end
+
+  config.vm.define "process" do |node|
+    node.vm.hostname = "process"
+    node.vm.provision :puppet do |puppet|
+      puppet.manifest_file = "process.pp"
+      puppet.manifests_path = "manifests"
+      puppet.module_path = "modules"
+    end
+  end
+
+  config.vm.define "store" do |node|
+    node.vm.hostname = "store"
+    node.vm.provision :puppet do |puppet|
+      puppet.manifest_file = "store.pp"
       puppet.manifests_path = "manifests"
       puppet.module_path = "modules"
     end

@@ -1,12 +1,16 @@
 class riemann::dash {
 
+  package { 'ruby-full':
+    ensure => installed
+  }
+
   exec { 'gem install riemann-dash':
     path => "/bin:/usr/bin",
     unless => "gem list | grep riemann-dash",
+    require => Package['ruby-full']
   }
 
   file { '/etc/riemann-dash.conf':
-    source => "puppet:///modules/riemann/riemann-dash.conf",
     notify => Service['riemann-dash'],
     content => "set :bind, \"0.0.0.0\"\n"
   }
@@ -20,18 +24,5 @@ class riemann::dash {
     require => File['/etc/init/riemann-dash.conf']
   }
 
-  package { 'riemann':
-    ensure => installed
-  }
-
-  service { 'riemann':
-    ensure => running
-  }
-
-  file { '/etc/riemann/riemann.config':
-    source => "puppet:///modules/riemann/riemann.config",
-    require => Package['riemann'],
-    notify => Service['riemann']
-  }
 
 }

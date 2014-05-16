@@ -14,7 +14,7 @@ class nginx {
     require => Package['nginx']
   }
 
-  define vhost($name=$title, $source) {
+  define vhost($source) {
     file { "/etc/nginx/sites-enabled/${name}.conf":
       require => Package['nginx'],
       notify => Service['nginx'],

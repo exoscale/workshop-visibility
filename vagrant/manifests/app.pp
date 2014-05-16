@@ -1,2 +1,3 @@
-include base
-include shorten
+import "stages.pp"
+class { 'base': stage => repo }
+class { 'shorten': }

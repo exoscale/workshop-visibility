@@ -1,5 +1,4 @@
 class grafana {
-
   include nginx
 
   package { 'grafana':
@@ -7,6 +6,6 @@ class grafana {
   }
 
   nginx::vhost { 'grafana':
-    source => "puppet:///modules/grafana/grafana-vhost.conf"
+    source => "puppet:///modules/grafana/grafana-nginx.conf"
   }
 }

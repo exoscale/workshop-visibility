@@ -1,17 +1,11 @@
-include base {
-
-  stage { 'repo':
-    before => Stage['main']
-  }
-
+class base {
   package { 'curl':
-    ensure => installed
+    ensure => installed,
   }
 
   exec { 'curl https://packagecloud.io/install/repositories/exoscale/community/script.deb | sh':
     path => "/bin:/usr/bin",
     creates => "/etc/apt/sources.list.d/exoscale_community.list",
-    require => Package['curl'],
-    before => Stage['main']
+    require => Package['curl']
   }
 }

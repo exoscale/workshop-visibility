@@ -13,11 +13,6 @@ class shorten {
                  Package['gunicorn'] ]
   }
 
-  service { 'nginx':
-    ensure => running,
-    require => Package['nginx']
-  }
-
   file { '/etc/init/shorten.conf':
     source => "puppet:///modules/shorten/shorten-upstart.conf"
   }
