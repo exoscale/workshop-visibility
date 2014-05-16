@@ -1,0 +1,24 @@
+	<Aggregation>
+		Type "<%= plugin_type %>"
+<% if host -%>
+		Host "<%= host %>"
+<% end -%>
+<% if plugin -%>
+		Plugin "<%= plugin %>"
+<% end -%>
+<% if type_instance -%>
+      		TypeInstance "<%= type_instance %>"
+<% end -%>
+<% if plugin_instance -%>
+      		PluginInstance "<%= plugin_instance %>"
+<% end -%>
+<% group_by.each do |by| -%>
+   		GroupBy "<%= by %>"
+<% end -%>		
+		CalculateSum <%= calc_sum %>
+		CalculateNum <%= calc_num %>
+		CalculateAverage <%= calc_avg %>
+		CalculateMinimum <%= calc_min %>
+		CalculateMaximum <%= calc_max %>
+		CalculateStddev <%= calc_dev %>
+	</Aggregation>

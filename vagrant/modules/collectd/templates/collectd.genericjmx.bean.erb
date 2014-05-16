@@ -1,0 +1,21 @@
+		<MBean "<%= title %>">
+			ObjectName "<%= object %>"
+<% if instanceprefix -%>
+			InstancePrefix "<%= instanceprefix %>"
+<% end -%>
+<% if instancefrom -%>
+			InstanceFrom "<%= instancefrom %>"
+<% end -%>
+<% values.each do |v| -%>
+			<Value>
+				Type		<%= v['type'] %>
+				Attribute	"<%= v['attribute'] %>"
+<% if v.has_key? 'table' -%>
+				Table		<%= v['table'] %>
+<% end -%>
+<% if v.has_key? 'instanceprefix' -%>
+				InstancePrefix	"<%= v['instanceprefix'] %>"
+<% end -%>
+			</Value>
+<% end -%>
+		</MBean>

@@ -1,0 +1,50 @@
+	<Node "<%= name %>">
+		Host "<%= host %>"
+                TTLFactor <%= ttlfactor %>
+<% settings.each do |k,v| -%>
+		<%= k %> "<%= v %>"
+<% end -%>
+                <Threshold>
+<% thresholds.each do |k,v| -%>
+<% if not v.empty? -%>
+  <% if v.has_key? 'host' -%>
+                        <Host "<%= v['host'] %>">
+  <% end -%>
+			<Plugin "<%= v['plugin'] %>">
+<% if v.has_key? 'plugin_instance' -%>
+				Instance "<%= v['plugin_instance'] %>"
+<% end -%>
+				<Type "<%= v['type'] %>">
+<% if v.has_key? 'type_instance' -%>
+					Instance "<%= v['type_instance'] %>"
+<% end -%>
+<% if v.has_key? 'datasource' -%>
+					DataSource "<%= v['datasource'] %>"
+<% end -%>
+<% if v.has_key? 'warning_min' -%>
+					WarningMin <%= v['warning_min'] %>
+<% end -%>
+<% if v.has_key? 'warning_max' -%>
+					WarningMax <%= v['warning_max'] %>
+<% end -%>
+<% if v.has_key? 'failure_min' -%>
+					FailureMin <%= v['failure_min'] %>
+<% end -%>
+<% if v.has_key? 'failure_max' -%>
+					FailureMax <%= v['failure_max'] %>
+<% end -%>
+<% if v.has_key? 'invert' -%>
+					Invert <%= v['invert'] %>
+<% end -%>
+<% if v.has_key? 'hits' -%>
+					Hits <%= v['hits'] %>
+<% end -%>
+                                </Type>
+                        </Plugin>
+  <% if v.has_key? 'host' -%>
+                        </Host>
+  <% end -%>
+<% end -%>
+<% end -%>
+                </Threshold>
+        </Node>

@@ -1,0 +1,587 @@
+  <Data "ifmib_if_octets64">
+    Type "if_octets"
+    Table true
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifHCInOctets" "IF-MIB::ifHCOutOctets"
+  </Data>
+  <Data "ifmib_if_octets32">
+    Type "if_octets"
+    Table true
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifInOctets" "IF-MIB::ifOutOctets"
+  </Data>
+  <Data "ifmib_if_packets32">
+    Type "if_packets"
+    Table true
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifInUcastPkts" "IF-MIB::ifOutUcastPkts"
+  </Data>
+  <Data "ifmib_if_packets64">
+    Type "if_packets"
+    Table true
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifHCInUcastPkts" "IF-MIB::ifHCOutUcastPkts"
+  </Data>
+  <Data "ifmib_if_errors32">
+    Type "if_errors"
+    Table true
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifInErrors" "IF-MIB::ifOutErrors"
+  </Data>
+  <Data "ifmib_if_discards32">
+    Type "if_errors"
+    Table true
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifInDiscards" "IF-MIB::ifOutDiscards"
+  </Data>
+  <Data "ifmib_if_operstatus">
+    Type "links"
+    Table true
+    InstancePrefix "operstatus-"
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifOperStatus"
+  </Data>
+  <Data "ifmib_if_adminstatus">
+    Type "links"
+    Table true
+    InstancePrefix "adminstatus-"
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifAdminStatus"
+  </Data>
+  <Data "ifmib_if_connectorpresent">
+    Type "links"
+    Table true
+    InstancePrefix "connector-"
+    Instance "IF-MIB::ifName"
+    Values "IF-MIB::ifConnectorPresent"
+  </Data>
+  <Data "hrmib_df_size">
+    Type "df"
+    Table true
+    Instance "HOST-RESOURCES-MIB::hrStorageDescr"
+    Values "HOST-RESOURCES-MIB::hrStorageUsed" "HOST-RESOURCES-MIB::hrStorageSize"
+  </Data>
+  <Data "hrmib_df_allocsize">
+    Type "gauge"
+    Table true
+    Instance "HOST-RESOURCES-MIB::hrStorageDescr"
+    Values "HOST-RESOURCES-MIB::hrStorageAllocationUnits"
+  </Data>
+  <Data "hrmib_process_num">
+    Type "gauge"
+    Table false
+    Instance "process-num"
+    Values "HOST-RESOURCES-MIB::hrSystemProcesses.0" 
+  </Data>
+  <Data "hrmib_process_load">
+    Type "gauge"
+    Table true
+    InstancePrefix "load"
+    Values "HOST-RESOURCES-MIB::hrProcessorLoad"
+  </Data>  
+  <Data "junipermib_cpu_percent">
+    Type "percent"
+    Table false
+    Instance "pfe_engine_cpu_percentage"
+    Values "1.3.6.1.4.1.2636.3.39.1.12.1.1.1.4.0"
+  </Data>
+  <Data "junipermib_pfe_session_count">
+    Type "current_sessions"
+    Table false
+    Instance "pfe_session_count"
+    Values "SNMPv2-SMI::enterprises.2636.3.39.1.12.1.1.1.6.0"
+  </Data>
+  <Data "junipermib_pfe_maxsession_count">
+    Type "current_sessions"
+    Table false
+    Instance "pfe_maxsession_count"
+    Values "SNMPv2-SMI::enterprises.2636.3.39.1.12.1.1.1.7.0"
+  </Data>
+  <Data "junipermib_srx650_psu_status">
+    Type "psudual"
+    Table false
+    Instance "juniper_sys_psu_status"
+    Values ".1.3.6.1.4.1.2636.3.1.15.1.8.2.1.0.0" ".1.3.6.1.4.1.2636.3.1.15.1.8.2.2.0.0"
+    </Data>
+  <Data "junipermib_srx240_psu_status">
+    Type "psumono"
+    Table false
+    Instance "juniper_sys_psu_status"
+    Values ".1.3.6.1.4.1.2636.3.1.15.1.8.2.1.0.0"
+    </Data>
+ <Data "ciscomib_router_cpu_routing_percent">
+    Type "percent"
+    Table false
+    Instance "routing_engine_cpu_percentage"
+    Values ".1.3.6.1.4.1.9.9.109.1.1.1.1.8.1"
+  </Data>
+ <Data "ciscomib_router_cpu_switching_percent">
+    Type "percent"
+    Table false
+    Instance "switching_engine_cpu_percentage"
+    Values ".1.3.6.1.4.1.9.9.109.1.1.1.1.8.2"
+  </Data>
+ <Data "ciscomib_router_memory_available_bytes">
+    Type "gauge"
+    Table false
+    Instance "sys_mem_available_bytes"
+    Values ".1.3.6.1.4.1.9.9.48.1.1.1.6.1"
+  </Data>
+ <Data "ciscomib_router_memory_used_bytes">
+    Type "gauge"
+    Table false
+    Instance "sys_mem_used_bytes"
+    Values ".1.3.6.1.4.1.9.9.48.1.1.1.5.1"
+  </Data>
+ <Data "ciscomib_switch_cpu_percent">
+    Type "percent"
+    Table false
+    Instance "sys_cpu_percentage"
+    Values "1.3.6.1.4.1.9.9.109.1.1.1.1.7.1"
+  </Data>
+ <Data "ciscomib_switch_memory_percent">
+    Type "percent"
+    Table false
+    Instance "sys_mem_percentage"
+    Values ".1.3.6.1.4.1.9.9.305.1.1.2.0"
+  </Data>
+ <Data "ciscomib_router_psu_status">
+    Type "psudual"
+    Table false
+    Instance "cisco_router_sys_psu_status"
+    Values "1.3.6.1.4.1.9.9.13.1.5.1.3.1" "1.3.6.1.4.1.9.9.13.1.5.1.3.2"
+  </Data>
+ <Data "ciscomib_switch_psu_status">
+    Type "psudual"
+    Table false
+    Instance "cisco_switch_sys_psu_status"
+    Values "1.3.6.1.4.1.9.9.117.1.1.2.1.2.470" "1.3.6.1.4.1.9.9.117.1.1.2.1.2.471"
+  </Data>
+ <Data "ciscomib_switch_fex101_psu_status">
+    Type "psudual"
+    Table false
+    Instance "sys_psu_fex101_status"
+    Values "1.3.6.1.4.1.9.9.117.1.1.2.1.2.101000470" "1.3.6.1.4.1.9.9.117.1.1.2.1.2.101000471"
+  </Data>
+ <Data "ciscomib_switch_fex102_psu_status">
+    Type "psudual"
+    Table false
+    Instance "sys_psu_fex102_status"
+    Values "1.3.6.1.4.1.9.9.117.1.1.2.1.2.102000470" "1.3.6.1.4.1.9.9.117.1.1.2.1.2.102000471"
+  </Data>
+ <Data "ciscomib_switch_fex103_psu_status">
+    Type "psudual"
+    Table false
+    Instance "sys_psu_fex103_status"
+    Values "1.3.6.1.4.1.9.9.117.1.1.2.1.2.103000470" "1.3.6.1.4.1.9.9.117.1.1.2.1.2.103000471"
+  </Data>
+ <Data "ciscomib_switch_fex104_psu_status">
+    Type "psudual"
+    Table false
+    Instance "sys_psu_fex104_status"
+    Values "1.3.6.1.4.1.9.9.117.1.1.2.1.2.104000470" "1.3.6.1.4.1.9.9.117.1.1.2.1.2.104000471"
+  </Data>
+  <Data "zfsFilesystemKB">
+    Type "df"
+    Table true
+    Instance ".1.3.6.1.4.1.25359.1.1.1"
+    Values ".1.3.6.1.4.1.25359.1.1.3" ".1.3.6.1.4.1.25359.1.1.2"
+  </Data>
+  <Data "zfsPoolHealth">
+    Type "gauge"
+    Table true
+    InstancePrefix "zfsPoolHealth-"
+    Instance ".1.3.6.1.4.1.25359.1.1.1"
+    Values ".1.3.6.1.4.1.25359.1.1.4"
+  </Data>
+  <Data "zfsARCSizeKB">
+    Type "counter"
+    Table false
+    Instance "zfsARCSizeKB"
+    Values ".1.3.6.1.4.1.25359.1.2.1.0"
+  </Data>
+  <Data "zfsARCMetadataSizeKB">
+    Type "counter"
+    Table false
+    Instance "zfsARCMetadataSizeKB"
+    Values ".1.3.6.1.4.1.25359.1.2.2.0"
+  </Data>
+  <Data "zfsARCDataSizeKB">
+    Type "counter"
+    Table false
+    Instance "zfsARCDataSizeKB"
+    Values ".1.3.6.1.4.1.25359.1.2.3.0"
+  </Data>
+  <Data "zfsARCHits">
+    Type "counter"
+    Table false
+    Instance "zfsARCSizeKB"
+    Values ".1.3.6.1.4.1.25359.1.2.4.0"
+  </Data>
+  <Data "zfsARCMisses">
+    Type "counter"
+    Table false
+    Instance "zfsARCMisses"
+    Values ".1.3.6.1.4.1.25359.1.2.5.0"
+  </Data>
+  <Data "zfsL2ARCHits">
+    Type "counter"
+    Table false
+    Instance "zfsL2ARCHits"
+    Values ".1.3.6.1.4.1.25359.1.3.1.0"
+  </Data>
+  <Data "zfsL2ARCMisses">
+     Type "counter"
+    Table false
+    Instance "zfsL2ARCMisses"
+    Values ".1.3.6.1.4.1.25359.1.3.2.0"
+  </Data>
+  <Data "zfsL2ARCReads">
+    Type "counter"
+    Table false
+    Instance "zfsL2ARCReads"
+    Values ".1.3.6.1.4.1.25359.1.3.3.0"
+  </Data>
+  <Data "zfsL2ARCWrites">
+    Type "counter"
+    Table false
+    Instance "zfsL2ARCHits"
+    Values ".1.3.6.1.4.1.25359.1.3.4.0"
+  </Data>
+  <Data "zfsReadKB">
+    Type "counter"
+    Table false
+    Instance "zfsReadKB"
+    Values ".1.3.6.1.4.1.25359.1.4.1.0"
+  </Data>
+  <Data "zfsReaddirKB">
+    Type "counter"
+    Table false
+    Instance "zfsReaddirKB"
+    Values ".1.3.6.1.4.1.25359.1.4.2.0"
+  </Data>
+  <Data "zfsWriteKB">
+    Type "counter"
+    Table false
+    Instance "zfsWriteKB"
+    Values ".1.3.6.1.4.1.25359.1.4.3.0"
+  </Data>
+  <Data "iostatErrors">
+    Type "counter"
+    Table true
+    Instance ".1.3.6.1.4.1.25359.4.1.1"
+    Values ".1.3.6.1.4.1.25359.4.1.2"
+  </Data>
+  <Data "ucdmib_diskIOOps">
+    Type "disk_ops"
+    Table true
+    Instance ".1.3.6.1.4.1.2021.13.15.1.1.2"
+    Values ".1.3.6.1.4.1.2021.13.15.1.1.5" ".1.3.6.1.4.1.2021.13.15.1.1.6"
+  </Data>
+  <Data "ucdmib_diskIOBytes">
+    Type "disk_octets"
+    Table true
+    Instance ".1.3.6.1.4.1.2021.13.15.1.1.2"
+    Values ".1.3.6.1.4.1.2021.13.15.1.1.3" ".1.3.6.1.4.1.2021.13.15.1.1.4"
+    </Data>
+  <Data "ucdmib_loadAverage">
+    Type "load"
+    Table false
+    Instance "load"
+    Values ".1.3.6.1.4.1.2021.10.1.3.1" ".1.3.6.1.4.1.2021.10.1.3.2" ".1.3.6.1.4.1.2021.10.1.3.3"
+    </Data>
+  <Data "ucbmib_memTotalSwap">
+    Type "swap"
+    Table false
+    Instance "total"
+    Values ".1.3.6.1.4.1.2021.4.3.0"
+  </Data>
+  <Data "ucbmib_memAvailSwap">
+    Type "swap"
+    Table false
+    Instance "avail"
+    Values ".1.3.6.1.4.1.2021.4.4.0"
+  </Data>
+  <Data "ucbmib_memTotalReal">
+    Type "memory"
+    Table false
+    Instance "total"
+    Values ".1.3.6.1.4.1.2021.4.5.0"
+  </Data>
+  <Data "ucbmib_memAvailReal">
+    Type "memory"
+    Table false
+    Instance "avail"
+    Values ".1.3.6.1.4.1.2021.4.6.0"
+  </Data>
+  <Data "ucbmib_memTotalFree">
+    Type "memory"
+    Table false
+    Instance "free"
+    Values ".1.3.6.1.4.1.2021.4.11.0"
+  </Data>
+  <Data "ucbmib_ssSwapIn">
+    Type "swap_io"
+    Table false
+    Instance "in"
+    Values ".1.3.6.1.4.1.2021.11.3.0"
+  </Data>
+  <Data "ucbmib_ssSwapOut">
+    Type "swap_io"
+    Table false
+    Instance "out"
+    Values ".1.3.6.1.4.1.2021.11.4.0"
+  </Data>
+  <Data "ucbmib_ssCpuRawUser">
+    Type "cpu"
+    Table false
+    Instance "user"
+    Values ".1.3.6.1.4.1.2021.11.50.0"
+  </Data>
+  <Data "ucbmib_ssCpuRawNice">
+    Type "cpu"
+    Table false
+    Instance "nice"
+    Values ".1.3.6.1.4.1.2021.11.51.0"
+  </Data>
+  <Data "ucbmib_ssCpuRawSystem">
+    Type "cpu"
+    Table false
+    Instance "system"
+    Values ".1.3.6.1.4.1.2021.11.52.0"
+  </Data>
+  <Data "ucbmib_ssCpuRawIdle">
+    Type "cpu"
+    Table false
+    Instance "idle"
+    Values ".1.3.6.1.4.1.2021.11.53.0"
+  </Data>
+  <Data "ucbmib_ssCpuRawWait">
+    Type "cpu"
+    Table false
+    Instance "wait"
+    Values ".1.3.6.1.4.1.2021.11.54.0"
+  </Data>
+  <Data "ucbmib_ssCpuRawKernel">
+    Type "cpu"
+    Table false
+    Instance "kernel"
+    Values ".1.3.6.1.4.1.2021.11.55.0"
+  </Data>
+  <Data "ucbmib_ssCpuRawInterrupt">
+    Type "cpu"
+    Table false
+    Instance "interrupt"
+    Values ".1.3.6.1.4.1.2021.11.56.0"
+  </Data>
+  <Data "LanMgr_services">
+    Type "service"
+    Table true
+    Instance "SNMPv2-SMI::enterprises.77.1.2.3.1.1"
+    Values "SNMPv2-SMI::enterprises.77.1.2.3.1.3"
+  </Data>
+  <Data "mailcleanermib_spoolincoming">
+    Type "queue_length"
+    Table false
+    Instance "spool_incoming"
+    Values ".1.3.6.1.4.1.36661.1.2.1"
+  </Data>
+  <Data "mailcleanermib_spoolfiltering">
+    Type "queue_length"
+    Table false
+    Instance "spool_filtering"
+    Values ".1.3.6.1.4.1.36661.1.2.2"
+  </Data>
+  <Data "mailcleanermib_spooloutgoing">
+    Type "queue_length"
+    Table false
+    Instance "spool_outgoing"
+    Values ".1.3.6.1.4.1.36661.1.2.4"
+  </Data>
+  <Data "mailcleanermib_globalmsgcount">
+    Type "gauge"
+    Table false
+    Instance "global_message_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.1"
+  </Data>
+  <Data "mailcleanermib_globalcleancount">
+    Type "gauge"
+    Table false
+    Instance "global_clean_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.2"
+  </Data>
+  <Data "mailcleanermib_globalspamcount">
+    Type "gauge"
+    Table false
+    Instance "global_spam_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.3"
+  </Data>
+  <Data "mailcleanermib_globalviruscount">
+    Type "gauge"
+    Table false
+    Instance "global_virus_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.4"
+  </Data>
+  <Data "mailcleanermib_globalnamecount">
+    Type "gauge"
+    Table false
+    Instance "global_name_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.5"
+  </Data>
+  <Data "mailcleanermib_globalothercount">
+    Type "gauge"
+    Table false
+    Instance "global_other_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.6"
+  </Data>
+  <Data "mailcleanermib_globalsizecount">
+    Type "gauge"
+    Table false
+    Instance "global_size_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.7"
+  </Data>
+  <Data "mailcleanermib_globalusercount">
+    Type "gauge"
+    Table false
+    Instance "global_user_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.8"
+  </Data>
+  <Data "mailcleanermib_globalsizecount">
+    Type "gauge"
+    Table false
+    Instance "global_size_count"
+    Values ".1.3.6.1.4.1.36661.3.1.1.7"
+  </Data>
+  <Data "mailcleanermib_globalrefusedcount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.1"
+  </Data>
+  <Data "mailcleanermib_globalrefusedrblcount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_rbl_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.2"
+  </Data>
+  <Data "mailcleanermib_globalrefusedchostount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_host_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.3"
+  </Data>
+  <Data "mailcleanermib_globalrefusedrelaycount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_relay_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.4"
+  </Data>
+  <Data "mailcleanermib_globalrefusedlocalpartcount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_localpart_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.5"
+  </Data>
+  <Data "mailcleanermib_globalrefusedbatvcount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_batv_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.6"
+  </Data>
+  <Data "mailcleanermib_globalrefusedblacklistedsendercount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_blacklisted_sender_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.7"
+  </Data>
+  <Data "mailcleanermib_globalrefusedcspoofingount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_spoofing_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.8"
+  </Data>
+  <Data "mailcleanermib_globalrefusedcalloutcount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_callout_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.9"
+  </Data>
+  <Data "mailcleanermib_globalrefusedbadsendercount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_bad_sender_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.10"
+  </Data>
+  <Data "mailcleanermib_globalrefusedbackscattercount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_backscatter_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.11"
+  </Data>
+  <Data "mailcleanermib_globalrefusedunauthenticatedcount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_unauthenticated_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.12"
+  </Data>
+  <Data "mailcleanermib_globalrefusedunencryptedcount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_unencrypted_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.13"
+  </Data>
+  <Data "mailcleanermib_globalrefusedbaddomaincount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_bad_domain_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.14"
+  </Data>
+  <Data "mailcleanermib_globalrefusedbadspfcount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_bad_spf_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.15"
+  </Data>
+  <Data "mailcleanermib_globalrefusedbadrdnscount">
+    Type "gauge"
+    Table false
+    Instance "global_refused_bad_rdns_count"
+    Values ".1.3.6.1.4.1.36661.3.1.2.16"
+  </Data>
+  <Data "mailcleanermib_globalrelayedcount">
+    Type "gauge"
+    Table false
+    Instance "global_relayed_count"
+    Values ".1.3.6.1.4.1.36661.3.1.4.1"
+  </Data>
+  <Data "mailcleanermib_globalrelayedhostcount">
+    Type "gauge"
+    Table false
+    Instance "global_relayed_host_count"
+    Values ".1.3.6.1.4.1.36661.3.1.4.2"
+  </Data>
+  <Data "mailcleanermib_globalrelayedauthenticatedcount">
+    Type "gauge"
+    Table false
+    Instance "global_relayed_authenticated_count"
+    Values ".1.3.6.1.4.1.36661.3.1.4.3"
+  </Data>
+  <Data "mailcleanermib_globalrelayedrefusedcount">
+    Type "gauge"
+    Table false
+    Instance "global_relayed_refused_count"
+    Values ".1.3.6.1.4.1.36661.3.1.4.4"
+  </Data>
+  <Data "mailcleanermib_globalrelayedviruscount">
+    Type "gauge"
+    Table false
+    Instance "global_relayed_virus_count"
+    Values ".1.3.6.1.4.1.36661.3.1.4.5"
+  </Data>
+  <Data "mailcleanermib_globalacceptedcount">
+    Type "gauge"
+    Table false
+    Instance "global_accepted_count"
+    Values ".1.3.6.1.4.1.36661.3.1.5.1"
+  </Data>
+
