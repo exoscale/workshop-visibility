@@ -12,6 +12,7 @@ class cassandra {
   exec { 'gpg --export --armor 2B5C1B00 | sudo apt-key add -':
     path => "/bin:/usr/bin",
     unless => "apt-key list | grep 2B5C1B00",
+    require => Exec['gpg --keyserver pgp.mit.edu --recv-keys 2B5C1B00'],
     notify => Exec['apt-get update']
   }
 
