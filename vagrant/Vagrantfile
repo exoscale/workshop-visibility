@@ -21,9 +21,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.hostmanager.manage_host = true
+#  config.hostmanager.manage_host = true
   config.vm.box = "sincerely/trusty64"
-  config.vm.provision :hostmanager
+ # config.vm.provision :hostmanager
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "3184"]
