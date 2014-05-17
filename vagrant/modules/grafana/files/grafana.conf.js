@@ -24,14 +24,13 @@ define(['settings'],
                 */
 
                graphiteUrl: window.location.protocol + "//"+window.location.hostname + ':' + window.location.port,
+               timezoneOffset: null,
+               grafana_index: "grafana-dash",
+               unsaved_changes_warning: true,
+                   panel_names: [
+                             'text',
+                             'graphite'
 
-               /**
-                * Multiple graphite servers? Comment out graphiteUrl and replace with
-                *
-                *  datasources: {
-                *    data_center_us: { type: 'graphite',  url: 'http://<graphite_url>',  default: true },
-                *    data_center_eu: { type: 'graphite',  url: 'http://<graphite_url>' }
-                *
-                }
-                })
-                })
+                   ]
+                 });
+           });
