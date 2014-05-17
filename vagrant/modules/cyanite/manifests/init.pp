@@ -2,7 +2,12 @@ class cyanite {
   include java
 
   package { 'cyanite':
+    ensure => installed,
     require => Package[$java::jdk]
+  }
+
+  package { 'graphite-api':
+    ensure => installed
   }
 
   exec { 'useradd -d /home/cyanite -s /bin/false cyanite':
@@ -13,6 +18,12 @@ class cyanite {
   file { '/etc/cyanite.yaml':
     source => "puppet:///modules/cyanite/cyanite.yaml",
     notify => Service['cyanite']
+  }
+
+  exec { 'curl https://raw.githubusercontent.com/pyr/cyanite/master/doc/schema.cql | cqlsh':
+    unless => "echo describe keyspaces | cqlsh | grep metric",
+    path => "/bin:/usr/bin",
+    require => Service['cassandra']
   }
 
   service { 'cyanite':

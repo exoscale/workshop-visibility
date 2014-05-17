@@ -26,4 +26,9 @@ class cassandra {
     require => Exec['gpg --export --armor 2B5C1B00 | sudo apt-key add -']
   }
 
+  service { 'cassandra':
+    ensure => running,
+    require => Package['cassandra']
+  }
+
 }
