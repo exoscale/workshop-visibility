@@ -4,6 +4,17 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+# Exoscale (cloudstack) settings
+# Mandatory settings
+EXOSCALE_API_KEY = ENV['EXOSCALE_API_KEY']
+EXOSCALE_API_SECRET = ENV['EXOSCALE_API_SECRET']
+# Optional
+EXOSCALE_TEMPLATE = ENV['EXOSCALE_TEMPLATE'] || "5fdd740b-488a-4c8a-ba4b-207f1d1245ef" # Ubuntu 14.04, 50GB disk
+EXOSCALE_INSTANCE_TYPE = ENV['EXOSCALE_INSTANCE_TYPE'] || "b6e9d1e8-89fc-4db3-aaa4-9b4c5b1d0844" # Medium - 4GB ram, 2 CPU
+EXOSCALE_KEYPAIR = ENV['EXOSCALE_KEYPAIR'] || "default"
+EXOSCALE_ZONE = ENV['EXOSCALE_ZONE'] || "1128bd56-b4d9-4ac6-a7b9-c715b187ce11"
+EXOSCALE_HOST = ENV['EXOSCALE_HOST'] || "api.exoscale.ch"
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
@@ -17,6 +28,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "3184"]
   end
+
+  config.vm.provider "cloudstack" do |cloudstack, override|
+    config.vm.box = "exoscale"
+    cloudstack.host = EXOSCALE_HOST
+    cloudstack.path = "/compute"
+    cloudstack.port = 443
+    cloudstack.scheme = "https"
+    cloudstack.network_id = "00304a04-c7ea-4e77-a786-18bc64347bf7"
+    cloudstack.template_id = EXOSCALE_TEMPLATE
+    cloudstack.zone_id = EXOSCALE_ZONE
+    cloudstack.network_type = "Basic"
+    cloudstack.api_key = EXOSCALE_API_KEY
+    cloudstack.secret_key = EXOSCALE_API_SECRET
+    cloudstack.service_offering_id = EXOSCALE_INSTANCE_TYPE
+    cloudstack.keypair = EXOSCALE_KEYPAIR
+    override.ssh.username = "root"
+    override.ssh.private_key_path = "~/.ssh/id_rsa"
+  end
+
+  config.vm.provision :shell, inline: "apt-get update"
+  config.vm.provision :shell, inline: "apt-get -qy install puppet"
 
   config.vm.define "vis" do |node|
     node.vm.network "forwarded_port", guest: 80, host: 8080
