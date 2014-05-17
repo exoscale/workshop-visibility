@@ -6,7 +6,7 @@ class grafana {
   }
 
   file { '/srv/www/grafana/config.js':
-    source => "puppet:///modules/grafana/grafana.config.js",
+    source => "puppet:///modules/grafana/grafana.conf.js",
     require => Package['grafana']
   }
 
