@@ -1,5 +1,7 @@
 class nginx {
 
+
+
   package { 'nginx':
     ensure => installed
   }
@@ -21,6 +23,10 @@ class nginx {
       source => $source,
       ensure => present
     }
+  }
+
+  vhost { 'status':
+    source => "puppet:///modules/nginx/status.vhost.conf"
   }
 
 }

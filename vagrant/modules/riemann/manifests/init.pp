@@ -7,8 +7,15 @@ class riemann {
     require => Package[$java::jdk]
   }
 
+  exec { 'useradd -d /home/riemann -s /bin/false riemann':
+    path => "/bin:/usr/bin:/sbin:/usr/sbin",
+    unless => "grep ^riemann /etc/passwd"
+  }
+
   service { 'riemann':
-    ensure => running
+    ensure => running,
+    require => [ Package['riemann'],
+                 Exec['useradd -d /home/riemann -s /bin/false riemann'] ]
   }
 
   file { '/etc/riemann/riemann.config':
