@@ -1,0 +1,9 @@
+search_index: /srv/graphite/index
+finders:
+  - cyanite.CyaniteFinder
+functions:
+  - graphite_api.functions.SeriesFunctions
+  - graphite_api.functions.PieFunctions
+cyanite:
+  urls:
+    - http://127.0.0.1:8080

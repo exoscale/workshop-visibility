@@ -31,4 +31,14 @@ class cyanite {
     require => [ Package['cyanite'],
                  Exec['useradd -d /home/cyanite -s /bin/false cyanite'] ]
   }
+
+  file { '/etc/graphite-api.yaml':
+    source => "puppet:///modules/cyanite/graphite-api.yaml",
+    notify => Service['graphite-api']
+  }
+
+  service { 'graphite-api':
+    ensure => running,
+    require => Package['graphite-api']
+  }
 }
