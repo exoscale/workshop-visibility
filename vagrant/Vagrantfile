@@ -29,23 +29,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "3184"]
   end
 
-  config.vm.provider "cloudstack" do |cloudstack, override|
-    config.vm.box = "exoscale"
-    cloudstack.host = EXOSCALE_HOST
-    cloudstack.path = "/compute"
-    cloudstack.port = 443
-    cloudstack.scheme = "https"
-    cloudstack.network_id = "00304a04-c7ea-4e77-a786-18bc64347bf7"
-    cloudstack.template_id = EXOSCALE_TEMPLATE
-    cloudstack.zone_id = EXOSCALE_ZONE
-    cloudstack.network_type = "Basic"
-    cloudstack.api_key = EXOSCALE_API_KEY
-    cloudstack.secret_key = EXOSCALE_API_SECRET
-    cloudstack.service_offering_id = EXOSCALE_INSTANCE_TYPE
-    cloudstack.keypair = EXOSCALE_KEYPAIR
-    override.ssh.username = "root"
-    override.ssh.private_key_path = "~/.ssh/id_rsa"
-  end
+  #config.vm.provider "cloudstack" do |cloudstack, override|
+  #  config.vm.box = "exoscale"
+  #  cloudstack.host = EXOSCALE_HOST
+  #  cloudstack.path = "/compute"
+  #  cloudstack.port = 443
+  #  cloudstack.scheme = "https"
+  #  cloudstack.network_id = "00304a04-c7ea-4e77-a786-18bc64347bf7"
+  #  cloudstack.template_id = EXOSCALE_TEMPLATE
+  #  cloudstack.zone_id = EXOSCALE_ZONE
+  #  cloudstack.network_type = "Basic"
+  #  cloudstack.api_key = EXOSCALE_API_KEY
+  #  cloudstack.secret_key = EXOSCALE_API_SECRET
+  #  cloudstack.service_offering_id = EXOSCALE_INSTANCE_TYPE
+  #  cloudstack.keypair = EXOSCALE_KEYPAIR
+  #  override.ssh.username = "root"
+  #  override.ssh.private_key_path = "~/.ssh/id_rsa"
+  #end
 
   #config.vm.provision :shell, inline: "apt-get update"
   #config.vm.provision :shell, inline: "apt-get -qy install puppet"
