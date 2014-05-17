@@ -23,7 +23,9 @@ class cyanite {
   exec { 'curl https://raw.githubusercontent.com/pyr/cyanite/master/doc/schema.cql | cqlsh':
     unless => "echo describe keyspaces | cqlsh | grep metric",
     path => "/bin:/usr/bin",
-    require => Service['cassandra']
+    require => [ Service['cassandra'],
+                 Service['cyanite'],
+                 Service['graphite-api'] ]
   }
 
   service { 'cyanite':
