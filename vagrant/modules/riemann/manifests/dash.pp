@@ -21,6 +21,7 @@ class riemann::dash {
 ->
   service { 'riemann-dash':
     provider => upstart,
+    ensure => running,
     require => File['/etc/init/riemann-dash.conf']
   }
 
